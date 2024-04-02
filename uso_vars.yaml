@@ -1,0 +1,15 @@
+---
+- name: Configure loadbalancer
+  hosts: webserver
+  
+  vars:
+    path_to_app: "/var/www/html"
+    
+  tasks:
+  - name: Contenido directorio
+    command: ls -la {{path_to_app}}
+    register: contenido
+
+  - name: Mostrar el contenido del directorio
+    debug:
+      msg: "{{contenido.stdout_lines}}"

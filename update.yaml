@@ -1,0 +1,9 @@
+# yum-update.yaml
+
+---
+- name: Update web a loadbalances
+  hosts: webserver:loadbalancer
+  become: true
+  tasks:
+  - name: Updating yum packages
+    ansible.builtin.yum: name=* state=latest

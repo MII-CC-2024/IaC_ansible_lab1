@@ -1,0 +1,13 @@
+# Por defecto /etc/ansible/hosts
+# Podemos usar otro con -i <inventario>
+
+# ./hosts
+
+[webserver]
+34.204.89.30
+3.90.40.164
+
+
+[loadbalancer]
+107.20.106.100
+

@@ -1,0 +1,21 @@
+# setup-app.yml
+
+---
+- name: Update App
+  hosts: webserver
+  become: true
+  tasks:
+  - name: Upload application file
+    copy:
+      src: app/index.php
+      dest: /var/www/html
+      mode: 0755
+
+  - name: Update index.php en la App
+    copy: 
+      dest: /var/www/html/index.php
+      content: "<h1>HOST: {{ ansible_hostname }}</h1>"
+      
+  handlers:
+  - name: restart apache
+    service: name=httpd state=restarted

@@ -1,0 +1,11 @@
+# ping.yaml
+---
+
+- name: Chequear conexión a servidores
+  hosts: all
+
+  tasks:
+
+  - name: Ping a todos los servidores
+    ansible.builtin.ping:
+    
